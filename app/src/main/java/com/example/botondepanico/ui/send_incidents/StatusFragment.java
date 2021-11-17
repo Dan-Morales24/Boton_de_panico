@@ -1,5 +1,6 @@
 package com.example.botondepanico.ui.send_incidents;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,8 +25,10 @@ public class StatusFragment extends Fragment {
     private DatabaseReference databaseReference;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
-    private EditText LocationIncident, Description;
+    private EditText Name,LastName,NumberPhone, Email, LocationIncident, Description;
 
     private StatusshowViewModel slideshowViewModel;
 
@@ -35,6 +38,8 @@ public class StatusFragment extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_status, container, false);
+
+
 
 
 
