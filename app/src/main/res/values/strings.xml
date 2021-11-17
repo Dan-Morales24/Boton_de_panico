@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Boton de panico</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Boton de panico</string>
+    <string name="menu_gallery">Incidentes</string>
+    <string name="menu_slideshow">Notificaciones</string>
+    <string name="home_panic">Boton de panico</string>
+    <string name="menu_incident">Estado de alertas enviadas</string>
+    <string name="menu_login_out">Cerrar Sesíon</string>
+    <string name="menu_notifications">Notificaciones</string>
+    <string name="menu_edit_information">Editar información</string>
+    <string name="menu_status">Notificar incidentes</string>
+    <string name="permission_requiere">Porfavor habilita tu GPS</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_view_status">Estado de mis alertamientos</string>
+</resources>

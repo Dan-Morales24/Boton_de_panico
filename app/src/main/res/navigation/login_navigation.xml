@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/log_in">
+    <fragment
+        android:id="@+id/log_in"
+        android:name="com.example.botondepanico.login_fragment.log_in"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_log_in_to_log_in_register"
+            app:destination="@id/log_in_register"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/log_in_register"
+        android:name="com.example.botondepanico.login_fragment.log_in_register"
+        android:label="fragment_log_in_register"
+        tools:layout="@layout/fragment_log_in_register" />
+</navigation>

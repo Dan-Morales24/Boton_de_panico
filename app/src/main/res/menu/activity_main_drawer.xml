@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_baseline_local_police_24"
+            android:title="@string/home_panic" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_baseline_emergency"
+            android:title="@string/menu_incident" />
+
+        <item
+            android:id="@+id/nav_status"
+            android:icon="@drawable/ic_baseline_add_task_24"
+            android:title="@string/menu_status" />
+
+        <item
+            android:id="@+id/nav_view_status"
+            android:icon="@drawable/ic_baseline_aod_24"
+            android:title="@string/menu_view_status" />
+
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_baseline_notifications_active_24"
+            android:title="@string/menu_notifications" />
+        <item
+            android:id="@+id/nav_edit_information"
+            android:icon="@drawable/ic_baseline_edit"
+            android:title="@string/menu_edit_information" />
+
+        <item
+            android:id="@+id/nav_login_out"
+            android:icon="@drawable/ic_baseline_login_24"
+            android:title="@string/menu_login_out" />
+    </group>
+</menu>

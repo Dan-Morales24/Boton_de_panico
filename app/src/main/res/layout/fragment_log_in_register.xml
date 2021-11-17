@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context=".login_fragment.log_in_register">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+        <TextView
+            android:id="@+id/btnAtrasRegistro"
+            style="@style/image_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="50dp"
+            android:clickable="true"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Registrarse"
+            android:textStyle="bold"
+            style="@style/text_color_login"
+            android:textSize="30dp"
+            android:layout_gravity="center"
+          />
+
+
+        <EditText
+            android:id="@+id/Name"
+            style="@style/edit_text_login"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_marginTop="32dp"
+            android:drawableStart="@drawable/ic_baseline_person"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:ems="10"
+            android:drawablePadding="12dp"
+            android:hint="Nombre"
+            android:inputType="textPersonName"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            />
+
+        <EditText
+            android:id="@+id/LastName"
+            style="@style/edit_text_login"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_marginTop="32dp"
+            android:drawableStart="@drawable/ic_baseline_person"
+            android:layout_gravity="center"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:ems="10"
+            android:drawablePadding="12dp"
+            android:hint="Apellidos"
+            android:inputType="textPersonName"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            />
+
+
+        <EditText
+            android:id="@+id/Email"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:ems="10"
+            android:drawablePadding="12dp"
+            style="@style/edit_text_login"
+            android:inputType="textPersonName"
+            android:layout_gravity="center"
+            android:drawableStart="@drawable/ic_baseline_email"
+            android:hint="Correo electrónico"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            />
+
+
+        <EditText
+            android:id="@+id/Phone"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:ems="10"
+            android:drawablePadding="12dp"
+            android:inputType="textPersonName"
+            style="@style/edit_text_login"
+            android:drawableStart="@drawable/ic_baseline_phone"
+            android:layout_gravity="center"
+            android:hint="Numero de telefono"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            />
+
+
+        <EditText
+            android:id="@+id/Password"
+            style="@style/edit_text_login"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:ems="10"
+            android:drawablePadding="12dp"
+            android:inputType="textPersonName"
+            android:drawableStart="@drawable/ic_baseline_lock"
+            android:layout_gravity="center"
+            android:hint="Contraseña"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+           />
+
+
+
+
+        <Button
+            android:id="@+id/RegisterData"
+            style="@style/Button_style_login"
+            android:layout_width="313dp"
+            android:layout_height="62dp"
+            android:layout_gravity="center|bottom"
+            android:layout_marginTop="240px"
+            android:layout_marginBottom="30px"
+            android:text="Registrarme"
+            android:textColor="#ffff"
+            android:textSize="20dp" />
+
+
+    </LinearLayout>
+
+
+</ScrollView>

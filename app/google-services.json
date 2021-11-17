@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "760252501543",
+    "project_id": "boton-de-panico-bb93e",
+    "storage_bucket": "boton-de-panico-bb93e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760252501543:android:eb2195c6430649a88dc802",
+        "android_client_info": {
+          "package_name": "com.example.botondepanico"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "760252501543-jpkhj3jcdcgtruo20qok6hlp2if1nnpr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.botondepanico",
+            "certificate_hash": "4805a739f00e6a8d4c8c12ba384a44910484d364"
+          }
+        },
+        {
+          "client_id": "760252501543-dk8f3mvfloe6p1cd5715elfaenint1p5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7QJl7pW3kQKqRZNgCiTV2pkRcCamluco"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "760252501543-dk8f3mvfloe6p1cd5715elfaenint1p5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
