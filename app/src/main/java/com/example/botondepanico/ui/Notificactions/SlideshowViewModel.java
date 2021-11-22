@@ -1,4 +1,4 @@
-package com.example.botondepanico.ui.Notificaciones;
+package com.example.botondepanico.ui.Notificactions;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

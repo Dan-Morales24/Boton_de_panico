@@ -87,14 +87,12 @@ public class log_in_register extends Fragment {
                 progressDialog = ProgressDialog.show(getContext(), "Espera un momento",
                         "Estamos guardando tus datos", true);
                 registerUser();
-
             }
                 else {
                 Toast.makeText(getContext(), "La contraseña debe de tener al menos 6 caracteres", Toast.LENGTH_SHORT).show();
                     }
                  }
                     else {
-
                 Toast.makeText(getContext(), "Faltan datos", Toast.LENGTH_SHORT).show();
                  }
               }

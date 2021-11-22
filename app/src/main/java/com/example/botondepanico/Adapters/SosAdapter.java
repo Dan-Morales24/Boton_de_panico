@@ -38,26 +38,23 @@ public class SosAdapter extends RecyclerView.Adapter <SosAdapter.ViewHolder>{
         IncidentSosModel incidentSosModel = NameList.get(position);
         holder.textViewInformation.setText(incidentSosModel.getName());
         holder.textViewLocation.setText(incidentSosModel.getLocation());
-        holder.textViewStatus.setText(incidentSosModel.getStatus());
+        holder.textViewStatus.setText("Estado de la alerta: "+incidentSosModel.getStatus());
         holder.textViewIdSos.setText(incidentSosModel.getIdSosAlert());
 
         String status = incidentSosModel.getStatus();
 
 
-        if(incidentSosModel.getStatus().equals("Estado de la alerta: Pending")){
+        if(incidentSosModel.getStatus().equals("Pendiente")){
             holder.imageViewStatus.setImageResource(R.drawable.ic_status_pending);
         }
-            else if (incidentSosModel.getStatus().equals("Estado de la alerta: Viewed")){
+            else if (incidentSosModel.getStatus().equals("Visto")){
             holder.imageViewStatus.setImageResource(R.drawable.ic_status_viewed);
 
         }
-            else if (incidentSosModel.getStatus().equals("Estado de la alerta: Attended")){
+            else if (incidentSosModel.getStatus().equals("Atendido")){
             holder.imageViewStatus.setImageResource(R.drawable.ic_status_attended);
 
         }
-
-
-
 
 
     }

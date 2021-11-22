@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.botondepanico.ui.Notificaciones.SlideshowFragment"
+        android:name="com.example.botondepanico.ui.Notificactions.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
@@ -33,6 +33,11 @@
         android:name="com.example.botondepanico.ui.Edit_Information.Edit_information"
         android:label="@string/menu_edit_information"
         tools:layout="@layout/fragment_edit_information" />
+    <fragment
+        android:id="@+id/nav_view_status"
+        android:name="com.example.botondepanico.ui.StatusComplaint.Complaints"
+        android:label="@string/menu_view_status"
+        tools:layout="@layout/fragment_complaints" />
 
 
 </navigation>

@@ -1,4 +1,4 @@
-package com.example.botondepanico.ui.Notificaciones;
+package com.example.botondepanico.ui.Notificactions;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

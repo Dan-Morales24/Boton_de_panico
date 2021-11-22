@@ -66,10 +66,10 @@ public class GalleryFragment extends Fragment {
                     for (DataSnapshot ds : snapshot.getChildren()){
                         String idSosAlert= "Id: "+ds.child("Id_Incident").getValue().toString();
                         String name = "Nombre: "+ds.child("Name").getValue().toString();
-                        String status ="Estado de la alerta: "+ds.child("Status").getValue().toString();
+                        String status = ds.child("Status").getValue().toString();
                        String location ="Ubicación: "+ds.child("Location").getValue().toString();
-                        //String location = "ubicacion";
-                      //  String status = "estatus";
+
+
                         incidentSosModels.add(new IncidentSosModel(idSosAlert,name,location,status));
 
                     }

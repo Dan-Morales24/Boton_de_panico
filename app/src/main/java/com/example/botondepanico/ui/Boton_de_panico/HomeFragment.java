@@ -160,7 +160,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         map.put("latitude",Latitude);
         map.put("longitude",Longitude);
         map.put("Type_of_alert","Botón de panico");
-        map.put("Status","Pending");
+        map.put("Status","Pendiente");
 
         mDatabase.child(Data_Reference.SOS).push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -203,7 +203,6 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                      };
                     }
                 }
-
 
         @Override
         public void onMapReady(GoogleMap googleMap) {
@@ -292,6 +291,8 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
             locationRequest.setFastestInterval(3000);
             locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         }
+
+
     }
 
 

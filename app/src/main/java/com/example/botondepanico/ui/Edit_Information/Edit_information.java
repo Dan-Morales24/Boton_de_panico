@@ -70,14 +70,13 @@ public class Edit_information extends Fragment {
         PhoneChange = (EditText) view.findViewById(R.id.PhoneChange);
         ChangeData = (Button) view.findViewById(R.id.ChangeData);
 
+
         NameShared = sharedPreferences.getString("Name","Nombre");
         LastNameShared = sharedPreferences.getString("LastName","Apellidos");
         PhoneShared = sharedPreferences.getString("Phone","Numero de telefono");
-
         NameChange.setText(NameShared);
         LastNameChange.setText(LastNameShared);
         PhoneChange.setText(PhoneShared);
-
 
 
         ChangeData.setOnClickListener(new View.OnClickListener() {
@@ -93,12 +92,12 @@ public class Edit_information extends Fragment {
                     Toast.makeText(getContext(), "Datos actualizados.", Toast.LENGTH_LONG).show();
 
                 }
+
+
                     else {
 
 
-                 //   Toast.makeText(getContext(), "Datos Diferentes.", Toast.LENGTH_LONG).show();
-
-                    Map<String,Object> personMap = new HashMap<>();
+                     Map<String,Object> personMap = new HashMap<>();
                     personMap.put("Name",SetName);
                     personMap.put("LastName",SetlastName);
                     personMap.put("Phone",SetPhone);

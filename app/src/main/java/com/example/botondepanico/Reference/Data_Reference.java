@@ -7,6 +7,7 @@ public class Data_Reference {
     public static final String Client_Info_reference ="Usuarios";
     public static final String Incidents = "Incidents";
     public static final String SOS= "SOS";
+    public static final String SendIncident="Incident_Notification";
     public static UserModel currentClient;
 
     public static  String builderWelcomeMessage(){
