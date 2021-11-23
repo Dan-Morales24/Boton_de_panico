@@ -12,12 +12,6 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.botondepanico.ui.Incidents_sos.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
         android:id="@+id/nav_status"
         android:name="com.example.botondepanico.ui.send_incidents.StatusFragment"
         android:label="@string/menu_status"
@@ -38,6 +32,24 @@
         android:name="com.example.botondepanico.ui.StatusComplaint.Complaints"
         android:label="@string/menu_view_status"
         tools:layout="@layout/fragment_complaints" />
+    <fragment
+        android:id="@+id/detailsComplaint2"
+        android:name="com.example.botondepanico.ui.send_incidents.details.detailsComplaint"
+        android:label="fragment_details_complaint"
+        tools:layout="@layout/fragment_details_complaint" />
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.botondepanico.ui.Incidents_sos.GalleryFragment"
+        android:label="fragment_gallery"
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_nav_gallery_to_detailsComplaint2"
+            app:destination="@id/detailsComplaint2"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
 
 
 </navigation>

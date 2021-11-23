@@ -119,10 +119,12 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                     if(lastDuration>=3000){
                            SendSos();
                     }
+
                         else{
                         Snackbar.make(getView(),"Mantenga  precionado 3 segundos para enviar una alerta a la central",Snackbar.LENGTH_LONG).show();
                     }
                 }
+
                 return true;
             }
 

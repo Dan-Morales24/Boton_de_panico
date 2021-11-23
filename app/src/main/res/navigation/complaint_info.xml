@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/complaint_info"
+    app:startDestination="@id/galleryFragment">
+
+    <fragment
+        android:id="@+id/detailsComplaint"
+        android:name="com.example.botondepanico.ui.send_incidents.details.detailsComplaint"
+        android:label="fragment_details_complaint"
+        tools:layout="@layout/fragment_details_complaint" />
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.example.botondepanico.ui.Incidents_sos.GalleryFragment"
+        android:label="fragment_gallery"
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_galleryFragment_to_detailsComplaint"
+            app:destination="@id/detailsComplaint" />
+    </fragment>
+</navigation>

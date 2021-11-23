@@ -9,6 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestManager;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.example.botondepanico.Activities.MainActivity;
 import com.example.botondepanico.Pojos.ComplaintModel;
 import com.example.botondepanico.R;
 
@@ -36,13 +40,16 @@ public class ComplaintAdapter extends RecyclerView.Adapter <ComplaintAdapter.Vie
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         ComplaintModel complaintModel = NameList.get(position);
-         holder.textViewId.setText(complaintModel.getIdSosAlert());
-        holder.textViewName.setText(complaintModel.getName());
+         holder.textViewId.setText("Id: "+complaintModel.getIdSosAlert());
+        holder.textViewName.setText("Nombre: "+complaintModel.getName()+" "+complaintModel.getLastName());
         holder.textViewTitle.setText(complaintModel.getTitle());
-        holder.textViewStatus.setText(complaintModel.getStatus());
-        holder.Location.setText(complaintModel.getLocation());
+        holder.textViewStatus.setText("Estado: "+complaintModel.getStatus());
+        holder.Location.setText("Ubicacion: "+complaintModel.getLocation());
 
         String status = complaintModel.getStatus();
+
+
+
 
 
         if(status.equals("Pendiente")){
