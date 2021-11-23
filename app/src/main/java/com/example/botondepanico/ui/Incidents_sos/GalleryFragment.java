@@ -83,7 +83,7 @@ public class GalleryFragment extends Fragment {
                 if(snapshot.exists()){
 
                     for (DataSnapshot ds : snapshot.getChildren()){
-                        String idSosAlert= "Id: "+ds.child("Id_Incident").getValue().toString();
+                        String idSosAlert= ds.child("Id_Incident").getValue().toString();
                         String name = "Nombre: "+ds.child("Name").getValue().toString();
                         String status = ds.child("Status").getValue().toString();
                        String location ="Ubicación: "+ds.child("Location").getValue().toString();
@@ -102,7 +102,10 @@ public class GalleryFragment extends Fragment {
                         @Override
                         public void onClick(View v) {
 
-                            final NavController navController = Navigation.findNavController(v);
+                            Bundle bundle = new Bundle();
+                             final NavController navController = Navigation.findNavController(v);
+                            bundle.putString("Id",incidentSosModels.get(recyclerView.getChildAdapterPosition(v)).getIdSosAlert());
+                            getParentFragmentManager().setFragmentResult("key",bundle);
                             navController.navigate(R.id.action_nav_gallery_to_detailsComplaint2);
                             incidentSosModels.clear();
 

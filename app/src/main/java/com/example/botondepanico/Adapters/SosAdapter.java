@@ -46,7 +46,7 @@ public class SosAdapter extends RecyclerView.Adapter <SosAdapter.ViewHolder>impl
         holder.textViewInformation.setText(incidentSosModel.getName());
         holder.textViewLocation.setText(incidentSosModel.getLocation());
         holder.textViewStatus.setText("Estado de la alerta: "+incidentSosModel.getStatus());
-        holder.textViewIdSos.setText(incidentSosModel.getIdSosAlert());
+        holder.textViewIdSos.setText("Id: "+incidentSosModel.getIdSosAlert());
 
         String status = incidentSosModel.getStatus();
 
