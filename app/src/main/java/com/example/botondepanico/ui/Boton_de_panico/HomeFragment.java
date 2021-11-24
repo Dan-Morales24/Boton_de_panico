@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Paint;
+import android.icu.text.SimpleDateFormat;
 import android.icu.text.UnicodeSet;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -23,6 +25,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -62,6 +65,7 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -134,6 +138,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         return root;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void SendSos() {
 
 
@@ -150,6 +155,13 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 final  String idIncident =
                         number_1 + number_2+number_3+number_4+"Xalt_Incident_Municipality";
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+        Date date = new Date();
+        String fecha = dateFormat.format(date);
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+        String hora = simpleDateFormat.format(new Date());
+
         String id = firebaseAuth.getCurrentUser().getUid();
         Map<String, Object> map = new HashMap<>();
         map.put("IdUser",id);
@@ -163,6 +175,8 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         map.put("longitude",Longitude);
         map.put("Type_of_alert","Botón de panico");
         map.put("Status","Pendiente");
+        map.put("Date",fecha);
+        map.put("Hour",hora);
 
         mDatabase.child(Data_Reference.SOS).push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override

@@ -1,15 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.send_incidents.details.detailsComplaint">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/idDetailsComplaint"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/item_image_panic"
+        android:layout_width="148dp"
+        android:layout_height="125dp"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TitletypeAlert"
+        style="@style/text_view_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Alerta de boton de panico"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_image_panic" />
+
+    <TextView
+        android:id="@+id/InformationAlert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="40dp"
+        android:justificationMode="inter_word"
+        style="@style/text_color_login"
+        android:textSize="20dp"
+        android:text="El dia 24 de enero de 2022 se registro una Alerta de boton de panico la cual fue registrada en la central a las 2:45 PM,
+        quedando registrado en la ubicacion: Av. independencia # 45 San simon tlatlahuquitepec, actualmente el status de esta alerta es: Atendida."
+
+        app:layout_constraintTop_toBottomOf="@+id/TitletypeAlert"
+        tools:ignore="MissingConstraints" />
+
+        <fragment
+            android:id="@+id/mapComplaint"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="312dp"
+            android:layout_height="201dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="81dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/InformationAlert"
+            tools:context=".ui.send_incidents.details.detailsComplaint" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
