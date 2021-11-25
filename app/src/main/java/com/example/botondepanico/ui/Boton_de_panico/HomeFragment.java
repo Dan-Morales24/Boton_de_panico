@@ -101,7 +101,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         View root = binding.getRoot();
         mapFragment = (SupportMapFragment) getChildFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync( this);
+        mapFragment.getMapAsync(this);
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
@@ -109,23 +109,22 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         pulsatorLayout = (PulsatorLayout) root.findViewById(R.id.pulsator);
         pulsatorLayout.start();
         starLocationGet();
-        sos=(Button) root.findViewById(R.id.sos);
+        sos = (Button) root.findViewById(R.id.sos);
         sos.setOnTouchListener(new View.OnTouchListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                vibrator = (Vibrator)getActivity().getSystemService(Context.VIBRATOR_SERVICE);
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    vibrator.vibrate(new long[]{0,900,900,900},2);
+                vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    vibrator.vibrate(new long[]{0, 900, 900, 900}, 2);
                     lastDown = System.currentTimeMillis();
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vibrator.cancel();
                     lastDuration = System.currentTimeMillis() - lastDown;
-                    if(lastDuration>=3000){
-                           SendSos();
-                    }
-
-                        else{
-                        Snackbar.make(getView(),"Mantenga  precionado 3 segundos para enviar una alerta a la central",Snackbar.LENGTH_LONG).show();
+                    if (lastDuration >= 3000) {
+                        SendSos();
+                    } else {
+                        Snackbar.make(getView(), "Mantenga  precionado 3 segundos para enviar una alerta a la central", Snackbar.LENGTH_LONG).show();
                     }
                 }
 
@@ -138,59 +137,60 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         return root;
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void SendSos() {
 
 
-        Snackbar.make(getView(),"Enviando alerta.. ",Snackbar.LENGTH_SHORT).show();
-        int p = (int) (Math.random() * 25 +1);int s = (int) (Math.random() * 25 + 1);
-                int t = (int) (Math.random() * 25 +1);int c = (int) (Math.random() * 25 + 1);
-                int number_1 = (int) (Math.random() * 1012 + 2111);
-                int number_2 = (int) (Math.random() * 1012 + 2111);
-                int number_3 = (int) (Math.random() * 1012 + 2111);
-                int number_4 = (int) (Math.random() * 1012 + 2111);
+        Snackbar.make(getView(), "Enviando alerta.. ", Snackbar.LENGTH_SHORT).show();
+        int p = (int) (Math.random() * 25 + 1);
+        int s = (int) (Math.random() * 25 + 1);
+        int t = (int) (Math.random() * 25 + 1);
+        int c = (int) (Math.random() * 25 + 1);
+        int number_1 = (int) (Math.random() * 1012 + 2111);
+        int number_2 = (int) (Math.random() * 1012 + 2111);
+        int number_3 = (int) (Math.random() * 1012 + 2111);
+        int number_4 = (int) (Math.random() * 1012 + 2111);
 
-                String[] elements = {"a","b","c","d","e","f","g","h","i","j","k","l"
-                        ,"m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
-                final  String idIncident =
-                        number_1 + number_2+number_3+number_4+"Xalt_Incident_Municipality";
+        String[] elements = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"
+                , "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"};
+        final String idIncident =
+                number_1 + number_2 + number_3 + number_4 + "XaltSOS";
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
         Date date = new Date();
         String fecha = dateFormat.format(date);
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm aa");
         String hora = simpleDateFormat.format(new Date());
 
         String id = firebaseAuth.getCurrentUser().getUid();
         Map<String, Object> map = new HashMap<>();
-        map.put("IdUser",id);
-        map.put("Id_Incident",idIncident);
-        map.put("Name",Data_Reference.currentClient.getName());
-        map.put("LastName",Data_Reference.currentClient.getLastName());
-        map.put("Phone",Data_Reference.currentClient.getPhone());
-        map.put("Email",Data_Reference.currentClient.getEmail());
-        map.put("Location",ubicacion_actual);
-        map.put("latitude",Latitude);
-        map.put("longitude",Longitude);
-        map.put("Type_of_alert","Botón de panico");
-        map.put("Status","Pendiente");
-        map.put("Date",fecha);
-        map.put("Hour",hora);
+        map.put("IdUser", id);
+        map.put("Id_Incident", idIncident);
+        map.put("Name", Data_Reference.currentClient.getName());
+        map.put("LastName", Data_Reference.currentClient.getLastName());
+        map.put("Phone", Data_Reference.currentClient.getPhone());
+        map.put("Email", Data_Reference.currentClient.getEmail());
+        map.put("Location", ubicacion_actual);
+        map.put("latitude", Latitude);
+        map.put("longitude", Longitude);
+        map.put("Type_of_alert", "Botón de panico");
+        map.put("Status", "Pendiente");
+        map.put("Date", fecha);
+        map.put("Hour", hora);
 
         mDatabase.child(Data_Reference.SOS).push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task2) {
-                if (task2.isSuccessful()){
-                    Snackbar.make(getActivity().findViewById(android.R.id.content),"Alerta Enviada a la central.",Snackbar.LENGTH_SHORT).show();
+                if (task2.isSuccessful()) {
+                    Snackbar.make(getActivity().findViewById(android.R.id.content), "Alerta Enviada a la central.", Snackbar.LENGTH_SHORT).show();
+                } else {
+                    Snackbar.make(getActivity().findViewById(android.R.id.content), "Problemas con la conexión, no se registro la alerta.", Snackbar.LENGTH_SHORT).show();
                 }
-
-                  else {
-                    Snackbar.make(getActivity().findViewById(android.R.id.content),"Problemas con la conexión, no se registro la alerta.",Snackbar.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }
+            }
+        });
+    }
 
 
     private void starLocationGet() {
@@ -201,7 +201,7 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
     private void buildLocationCallBack() {
 
-        if(locationCallback == null){
+        if (locationCallback == null) {
             locationCallback = new LocationCallback() {
                 @Override
                 public void onLocationResult(LocationResult locationResult) {
@@ -210,19 +210,35 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                             .getLastLocation().getLongitude());
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newPosition, 17f));
                     previousLocation = currentLocation;
-                        currentLocation = locationResult.getLastLocation();
-                        if(locationResult.getLastLocation()!=null){
-                            pulsatorLayout.setVisibility(View.VISIBLE);
-                            setLocation(locationResult.getLastLocation());
-                        }
-                       }
-                     };
+                    currentLocation = locationResult.getLastLocation();
+                    if (locationResult.getLastLocation() != null) {
+                        pulsatorLayout.setVisibility(View.VISIBLE);
+                        setLocation(locationResult.getLastLocation());
                     }
                 }
+            };
+        }
+    }
 
-        @Override
-        public void onMapReady(GoogleMap googleMap) {
-            mMap = googleMap;
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            return;
+        }
+        fusedLocationProviderClient.getLastLocation()
+                .addOnFailureListener(e -> Snackbar.make(getView(), e.getMessage(), Snackbar.LENGTH_SHORT)
+                        .show()).addOnSuccessListener(location -> {
+
+            if (location != null) {
+
+                pulsatorLayout.setVisibility(View.VISIBLE);
+
+            }
+        });
+
 
             Dexter.withContext(getContext())
                     .withPermission(Manifest.permission.ACCESS_FINE_LOCATION)

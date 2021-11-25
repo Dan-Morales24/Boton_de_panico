@@ -23,8 +23,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="-1dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="156dp"
-            />
+            android:layout_marginRight="156dp" />
 
 
         <TextView
@@ -53,11 +52,11 @@
 
         <TextView
             android:id="@+id/textViewIdSosIncident"
-            style="@style/text_view_login"
+            style="@style/text_data_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/ButtonPanic"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:layout_toEndOf="@+id/item_image_panic"
             android:layout_toRightOf="@+id/item_image_panic"
             android:text="Id"
@@ -68,47 +67,46 @@
 
 
         <TextView
-            android:id="@+id/textViewInformation"
-            style="@style/text_view_login"
+            android:id="@+id/textLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewIdSosIncident"
-            android:layout_toEndOf="@+id/item_image_panic"
-            android:layout_toRightOf="@+id/item_image_panic"
-            android:text="Nombre"
-            android:textSize="14dp"
-            android:textStyle="bold"
-
-            />
-
-        <TextView
-            android:id="@+id/textLocation"
-            style="@style/text_view_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textViewInformation"
+            android:layout_marginTop="6dp"
             android:layout_toEndOf="@+id/item_image_panic"
             android:layout_toRightOf="@+id/item_image_panic"
             android:text="ubicacion"
+            style="@style/text_data_notification"
             android:textSize="14dp"
             android:textStyle="bold"
 
             />
 
+
         <TextView
-            android:id="@+id/textStatus"
+            android:id="@+id/textStatus2"
             style="@style/text_view_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textLocation"
+            android:layout_marginTop="6dp"
             android:layout_toEndOf="@+id/item_image_panic"
             android:layout_toRightOf="@+id/item_image_panic"
-            android:text="Status"
-            android:textSize="14dp"
-            android:textStyle="bold"
+            android:text="ver mas ..."
+            android:textSize="18dp"
+            android:textStyle="bold|italic"
 
             />
 
+        <TextView
+            android:id="@+id/hourSOS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textStatus2"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/item_image_panic"
+            android:layout_toRightOf="@+id/item_image_panic"
+            android:gravity="right"
+            android:text="" />
 
 
     </RelativeLayout>

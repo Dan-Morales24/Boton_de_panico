@@ -1,4 +1,4 @@
-package com.example.botondepanico.ui.send_incidents.details;
+package com.example.botondepanico.ui.Incidents_sos.details;
 
 import android.os.Bundle;
 
@@ -9,13 +9,10 @@ import androidx.fragment.app.FragmentResultListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.example.botondepanico.Pojos.IncidentSosModel;
 import com.example.botondepanico.R;
 import com.example.botondepanico.Reference.Data_Reference;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -106,12 +103,7 @@ public class detailsComplaint extends Fragment implements OnMapReadyCallback {
 
                     SetInformation(Name,LastName,Status,Location,TypeOfAlert,Date,Hour);
 
-
-
                 }
-
-
-
             }
 
             @Override

@@ -62,6 +62,14 @@
         <item name="android:drawableLeft">@drawable/ic_baseline_west_day</item>
     </style>
 
+    <style name="text_color_notification" parent="Theme.BotonDePanico.NoActionBar">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="text_data_notification" parent="Theme.BotonDePanico.NoActionBar">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 
     <style name="Theme.BotonDePanico.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

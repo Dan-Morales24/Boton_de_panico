@@ -212,6 +212,8 @@ public class MainActivity extends AppCompatActivity implements UpdateData {
                                         editor.putString("Avatar", downloaduri.toString());
                                         editor.commit();
 
+                                        Data_Reference.currentClient.setAvatar(downloaduri.toString());
+
                                         Glide
                                                 .with(MainActivity.this)
                                                 .load(thumb_byte)

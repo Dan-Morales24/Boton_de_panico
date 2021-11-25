@@ -16,12 +16,16 @@ import com.example.botondepanico.Activities.MainActivity;
 import com.example.botondepanico.Pojos.ComplaintModel;
 import com.example.botondepanico.R;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
-public class ComplaintAdapter extends RecyclerView.Adapter <ComplaintAdapter.ViewHolder> {
+public class ComplaintAdapter extends RecyclerView.Adapter <ComplaintAdapter.ViewHolder> implements View.OnClickListener{
 
     private int resource;
     private ArrayList<ComplaintModel> NameList;
+    private View.OnClickListener listener;
+
 
     public ComplaintAdapter (ArrayList<ComplaintModel> NameList, int resource){
         this.NameList= NameList;
@@ -33,6 +37,7 @@ public class ComplaintAdapter extends RecyclerView.Adapter <ComplaintAdapter.Vie
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(resource, parent, false);
 
+        view.setOnClickListener(this);
         return new ViewHolder(view);
     }
 
@@ -40,11 +45,10 @@ public class ComplaintAdapter extends RecyclerView.Adapter <ComplaintAdapter.Vie
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         ComplaintModel complaintModel = NameList.get(position);
-         holder.textViewId.setText("Id: "+complaintModel.getIdSosAlert());
-        holder.textViewName.setText("Nombre: "+complaintModel.getName()+" "+complaintModel.getLastName());
         holder.textViewTitle.setText(complaintModel.getTitle());
-        holder.textViewStatus.setText("Estado: "+complaintModel.getStatus());
+        holder.textViewId.setText("Id: "+complaintModel.getIdSosAlert());
         holder.Location.setText("Ubicacion: "+complaintModel.getLocation());
+        holder.Hour.setText(complaintModel.getHour());
 
         String status = complaintModel.getStatus();
 
@@ -73,12 +77,24 @@ public class ComplaintAdapter extends RecyclerView.Adapter <ComplaintAdapter.Vie
         return NameList.size();
     }
 
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener = listener;
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        if(listener!=null){
+            listener.onClick(v);
+        }
+
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView textViewId;
         private TextView textViewTitle;
-        private TextView textViewName;
-        private TextView textViewStatus;
         private TextView Location;
+        private TextView Hour;
         private ImageView imageViewStatus;
         public View view;
 
@@ -89,10 +105,9 @@ public class ComplaintAdapter extends RecyclerView.Adapter <ComplaintAdapter.Vie
 
             this.textViewTitle = (TextView) view.findViewById(R.id.titleComplaint);
             this.textViewId = (TextView) view.findViewById(R.id.idComplaint);
-            this.textViewName = (TextView) view.findViewById(R.id.nameComplaint);
-            this.textViewStatus = (TextView) view.findViewById(R.id.statusComplaint);
             this.Location = (TextView)view.findViewById(R.id.textLocationComplaint);
             this.imageViewStatus = (ImageView) view.findViewById(R.id.imageViewStatus);
+            this.Hour=(TextView) view.findViewById(R.id.hourComplaint);
 
         }
 

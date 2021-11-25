@@ -15,16 +15,16 @@
         android:layout_height="wrap_content"
         android:padding="20dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
 
             android:id="@+id/item_image"
-            android:layout_width="40dp"
-            android:layout_height="60dp"
+            android:layout_width="67dp"
+            android:layout_height="65dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="-1dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginRight="156dp"
-            android:src="@drawable/ic_baseline_emergency" />
+
+            android:src="@drawable/icono_details_complaint" />
 
         <TextView
             android:id="@+id/titleComplaint"
@@ -51,7 +51,7 @@
 
         <TextView
             android:id="@+id/idComplaint"
-            style="@style/text_view_login"
+            style="@style/text_data_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/titleComplaint"
@@ -65,26 +65,14 @@
             />
 
 
-        <TextView
-            android:id="@+id/nameComplaint"
-            style="@style/text_view_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/idComplaint"
-            android:layout_toEndOf="@+id/item_image"
-            android:layout_toRightOf="@+id/item_image"
-            android:text="Nombre"
-            android:textSize="14dp"
-            android:textStyle="bold"
 
-            />
 
         <TextView
             android:id="@+id/textLocationComplaint"
-            style="@style/text_view_login"
+            style="@style/text_data_notification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/nameComplaint"
+            android:layout_below="@+id/idComplaint"
             android:layout_toEndOf="@+id/item_image"
             android:layout_toRightOf="@+id/item_image"
             android:text="ubicacion"
@@ -94,18 +82,32 @@
             />
 
         <TextView
-            android:id="@+id/statusComplaint"
+            android:id="@+id/textStatusSeeMore"
             style="@style/text_view_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textLocationComplaint"
+            android:layout_marginTop="6dp"
             android:layout_toEndOf="@+id/item_image"
             android:layout_toRightOf="@+id/item_image"
-            android:text="Status"
-            android:textSize="14dp"
-            android:textStyle="bold"
+            android:text="ver mas ..."
+            android:textSize="18dp"
+            android:textStyle="bold|italic"
 
             />
+
+
+        <TextView
+            android:id="@+id/hourComplaint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textStatusSeeMore"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/item_image"
+            android:layout_toRightOf="@+id/item_image"
+            android:gravity="right"
+            android:layout_marginTop="11dp"
+            android:text="12:20 p.m." />
 
 
 

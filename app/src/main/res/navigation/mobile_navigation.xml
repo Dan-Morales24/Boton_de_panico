@@ -9,7 +9,23 @@
         android:id="@+id/nav_home"
         android:name="com.example.botondepanico.ui.Boton_de_panico.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_view_status"
+            app:destination="@id/nav_view_status" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_slideshow"
+            app:destination="@id/nav_slideshow" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_status"
+            app:destination="@id/nav_status" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_edit_information"
+            app:destination="@id/nav_edit_information" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_status"
@@ -21,7 +37,15 @@
         android:id="@+id/nav_slideshow"
         android:name="com.example.botondepanico.ui.Notificactions.SlideshowFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_slideshow" >
+        <action
+            android:id="@+id/action_nav_slideshow_to_detailsNotification"
+            app:destination="@id/detailsNotification"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/nav_edit_information"
         android:name="com.example.botondepanico.ui.Edit_Information.Edit_information"
@@ -31,17 +55,25 @@
         android:id="@+id/nav_view_status"
         android:name="com.example.botondepanico.ui.StatusComplaint.Complaints"
         android:label="@string/menu_view_status"
-        tools:layout="@layout/fragment_complaints" />
+        tools:layout="@layout/fragment_complaints" >
+        <action
+            android:id="@+id/action_nav_view_status_to_detailsComplaintCitizen"
+            app:destination="@id/detailsComplaintCitizen"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
     <fragment
         android:id="@+id/detailsComplaint2"
-        android:name="com.example.botondepanico.ui.send_incidents.details.detailsComplaint"
-        android:label="fragment_details_complaint"
+        android:name="com.example.botondepanico.ui.Incidents_sos.details.detailsComplaint"
+        android:label="menu_view_details"
         tools:layout="@layout/fragment_details_complaint" />
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.botondepanico.ui.Incidents_sos.GalleryFragment"
         android:label="fragment_gallery"
-        tools:layout="@layout/fragment_gallery" >
+        tools:layout="@layout/fragment_gallery">
         <action
             android:id="@+id/action_nav_gallery_to_detailsComplaint2"
             app:destination="@id/detailsComplaint2"
@@ -50,6 +82,16 @@
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
+    <fragment
+        android:id="@+id/detailsComplaintCitizen"
+        android:name="com.example.botondepanico.ui.StatusComplaint.details.DetailsComplaintCitizen"
+        android:label="menu_view_details"
+        tools:layout="@layout/fragment_details_complaint_citizen" />
+    <fragment
+        android:id="@+id/detailsNotification"
+        android:name="com.example.botondepanico.ui.Notificactions.details.DetailsNotification"
+        android:label="fragment_details_notification"
+        tools:layout="@layout/fragment_details_notification" />
 
 
 </navigation>

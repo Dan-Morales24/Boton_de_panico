@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Notificactions.details.DetailsNotification"
+    tools:ignore="SpeakableTextPresentCheck">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:layout_height="300dp"
+            android:layout_marginTop="1dp"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:id="@+id/textView5"
+            style="@style/text_color_notification"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="40dp"
+            android:text="pago de apoyo a adultos mayores" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            >
+
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/text_color_notification"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="19dp"
+                android:text="Fecha de publicacion" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:textSize="19dp"
+                style="@style/text_color_notification"
+                android:textStyle="bold"
+                android:text="Hora de publicacion" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            >
+
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                style="@style/text_color_notification"
+                android:textSize="16dp"
+                android:text="24/01/2021" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/text_color_notification"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:text="99:99:99" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_marginTop="22dp"
+            android:layout_marginStart="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17dp"
+            style="@style/text_color_notification"
+            android:textStyle="bold|italic"
+            android:text="Noticia informativa" />
+
+
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            style="@style/text_color_notification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:justificationMode="inter_word"
+            android:text="Como se mencionó en títulos anteriores, los encabezados de sección se alinean con respecto a una imagen,
+y al situarse en la parte superior de la pantalla guardan especial relevancia por ser una zona de atención
+visual.
+En la selección de las imágenes para dichos encabezados de sección se procuró que sus representaciones
+estuvieran relacionadas con los tipos de contenidos de su sección. En consecuencia, aunque en mayor o
+menor nivel, son recursos visuales con un valor retórico y semiótico."
+            android:layout_marginBottom="20dp"
+            />
+
+
+    </LinearLayout>
+
+
+</ScrollView>

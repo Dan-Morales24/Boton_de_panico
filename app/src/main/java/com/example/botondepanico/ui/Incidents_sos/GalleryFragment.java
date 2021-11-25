@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,13 +35,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 public class GalleryFragment extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
     private FragmentGalleryBinding binding;
     private DatabaseReference databaseReference;
     FirebaseDatabase database;
@@ -51,11 +53,11 @@ public class GalleryFragment extends Fragment {
     private ArrayList<IncidentSosModel> incidentSosModels = new ArrayList<>();
     private ImageView avatar;
     private ProgressBar progressBar;
+    private TextView NoData;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+
 
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
          root = binding.getRoot();
@@ -66,6 +68,7 @@ public class GalleryFragment extends Fragment {
 
         avatar = (ImageView) root.findViewById(R.id.item_image_panic);
         progressBar = (ProgressBar) root.findViewById(R.id.progressBarPanic);
+        NoData = (TextView) root.findViewById(R.id.textNoData);
         databaseReference = FirebaseDatabase.getInstance().getReference();
         GetIncidentsFromFirebase();
 
@@ -84,11 +87,12 @@ public class GalleryFragment extends Fragment {
 
                     for (DataSnapshot ds : snapshot.getChildren()){
                         String idSosAlert= ds.child("Id_Incident").getValue().toString();
-                        String name = "Nombre: "+ds.child("Name").getValue().toString();
                         String status = ds.child("Status").getValue().toString();
-                       String location ="Ubicación: "+ds.child("Location").getValue().toString();
+                        String location = ds.child("Location").getValue().toString();
+                        String hour =ds.child("Hour").getValue().toString();
 
-                        incidentSosModels.add(new IncidentSosModel(idSosAlert,name,location,status));
+
+                        incidentSosModels.add(new IncidentSosModel(idSosAlert,location,status,hour));
 
                     }
 
@@ -113,6 +117,13 @@ public class GalleryFragment extends Fragment {
                     });
 
                 }
+                    else{
+                        progressBar.setVisibility(View.GONE);
+                        NoData.setVisibility(View.VISIBLE);
+
+
+                }
+
 
             }
 

@@ -3,31 +3,21 @@ package com.example.botondepanico.Pojos;
 public class IncidentSosModel {
 
     private String IdSosAlert;
-    private String Name;
     private String Location;
     private String Status;
-
-    public IncidentSosModel() {
-
-    }
+    private String Hour;
 
 
 
-    public IncidentSosModel(String IdSosAleet,String texto, String location, String status){
 
-        this.IdSosAlert = IdSosAleet;
+    public IncidentSosModel(String idSosAlert, String location, String status, String hour){
+
+        this.IdSosAlert = idSosAlert;
         this.Status = status;
         this.Location= location;
-        this.Name = texto;
+        this.Hour= hour;
     }
 
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
-    }
 
     public String getLocation() {
         return Location;
@@ -45,11 +35,13 @@ public class IncidentSosModel {
         Status = status;
     }
 
-    public String getIdSosAlert() {
-        return IdSosAlert;
-    }
+    public String getIdSosAlert() { return IdSosAlert; }
 
     public void setIdSosAlert(String idSosAlert) {
         IdSosAlert = idSosAlert;
     }
+
+    public String getHour() { return Hour; }
+
+    public void setHour(String hour) { Hour = hour; }
 }

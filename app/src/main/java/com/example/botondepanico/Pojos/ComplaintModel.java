@@ -4,25 +4,19 @@ public class ComplaintModel {
 
     private String Title;
     private String IdSosAlert;
-    private String Name;
-    private String LastName;
     private String Location;
-    private String Description;
     private String Status;
+    private String Hour;
 
 
 
-    public ComplaintModel(String Title, String IdSosAlert, String Name, String LastName, String Description, String Location, String Status){
+    public ComplaintModel(String title, String idSosAlert, String location, String status, String hour){
 
-        this.Title = Title;
-        this.IdSosAlert = IdSosAlert;
-        this.Name = Name;
-        this.LastName = LastName;
-        this.Description = Description;
-        this.Status = Status;
-        this.Location= Location;
-
-
+        this.Title = title;
+        this.IdSosAlert = idSosAlert;
+        this.Status = status;
+        this.Location= location;
+        this.Hour=hour;
 
     }
 
@@ -42,13 +36,6 @@ public class ComplaintModel {
         IdSosAlert = idSosAlert;
     }
 
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
-    }
 
     public String getLocation() {
         return Location;
@@ -66,19 +53,11 @@ public class ComplaintModel {
         Status = status;
     }
 
-    public String getLastName() {
-        return LastName;
+    public String getHour() {
+        return Hour;
     }
 
-    public void setLastName(String lastName) {
-        this.LastName = lastName;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
+    public void setHour(String hour) {
+        Hour = hour;
     }
 }

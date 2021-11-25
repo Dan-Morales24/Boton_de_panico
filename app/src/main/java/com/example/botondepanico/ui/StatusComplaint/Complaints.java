@@ -4,12 +4,15 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.botondepanico.Adapters.ComplaintAdapter;
 import com.example.botondepanico.Adapters.SosAdapter;
@@ -34,7 +37,7 @@ public class Complaints extends Fragment {
     private FirebaseAuth firebaseAuth;
     private ComplaintAdapter complaintAdapter;
     private ArrayList<ComplaintModel> complaintModels = new ArrayList<>();
-
+    private ProgressBar progressBar;
 
 
     public Complaints() {
@@ -57,8 +60,8 @@ public class Complaints extends Fragment {
 
         firebaseAuth=FirebaseAuth.getInstance();
         recyclerView = (RecyclerView)view.findViewById(R.id.recyclerViewComplaints);
+        progressBar= (ProgressBar)view.findViewById(R.id.progressBarComplaint);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
         databaseReference = FirebaseDatabase.getInstance().getReference();
         GetComplaintsFromFirebase();
 
@@ -77,17 +80,29 @@ public class Complaints extends Fragment {
                     for (DataSnapshot ds : snapshot.getChildren()){
                         String Title = ds.child("TitleComplaint").getValue().toString();
                         String IdSosAlert=ds.child("Id_Incident").getValue().toString();
-                        String Name = ds.child("Name").getValue().toString();
-                        String LastName = ds.child("LastName").getValue().toString();
-                        String Description = ds.child("Description").getValue().toString();
                         String status = ds.child("Status").getValue().toString();
                         String location =ds.child("Location").getValue().toString();
+                        String hour =ds.child("Hour").getValue().toString();
 
-                        complaintModels.add(new ComplaintModel(Title,IdSosAlert,Name,LastName,Description,location,status));
+                        complaintModels.add(new ComplaintModel(Title,IdSosAlert,location,status,hour));
 
                     }
+                    progressBar.setVisibility(View.GONE);
                     complaintAdapter = new ComplaintAdapter(complaintModels, R.layout.information_view_complaint);
                     recyclerView.setAdapter(complaintAdapter);
+
+                    complaintAdapter.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Bundle bundle = new Bundle();
+                            final NavController navController = Navigation.findNavController(v);
+                            bundle.putString("Id",complaintModels.get(recyclerView.getChildAdapterPosition(v)).getIdSosAlert());
+                            getParentFragmentManager().setFragmentResult("key",bundle);
+                            navController.navigate(R.id.action_nav_view_status_to_detailsComplaintCitizen);
+                            complaintModels.clear();
+                        }
+                    });
+
                 }
 
             }

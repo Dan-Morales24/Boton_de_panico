@@ -6,7 +6,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.icu.text.SimpleDateFormat;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -20,6 +22,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -38,7 +41,9 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
@@ -58,6 +63,7 @@ public class StatusFragment extends Fragment {
     private Button SendData;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -105,6 +111,7 @@ public class StatusFragment extends Fragment {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void SubmitInformation() {
 
         String TitleGet = TitleName.getText().toString();
@@ -146,8 +153,18 @@ public class StatusFragment extends Fragment {
                         return avatarFolder.getDownloadUrl();
                     }
                 }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @RequiresApi(api = Build.VERSION_CODES.N)
                     @Override
                     public void onComplete(@NonNull Task<Uri> task) {
+
+                        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+                        Date date = new Date();
+                        String fecha = dateFormat.format(date);
+
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm aa");
+                        String hora = simpleDateFormat.format(new Date());
+
+
                         Uri downloaduri = task.getResult();
                         Map<String, Object> map = new HashMap<>();
                         map.put("IdUser",id);
@@ -162,6 +179,9 @@ public class StatusFragment extends Fragment {
                         map.put("Type_of_alert","Denuncia ciudadana");
                         map.put("Status","Pendiente");
                         map.put("IncidentComplaint",downloaduri.toString());
+                        map.put("Comments","");
+                        map.put("Date",fecha);
+                        map.put("Hour",hora);
 
                         databaseReference.child(Data_Reference.SendIncident).push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
@@ -193,6 +213,14 @@ public class StatusFragment extends Fragment {
 
             }else{
 
+
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault());
+                Date date = new Date();
+                String fecha = dateFormat.format(date);
+
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+                String hora = simpleDateFormat.format(new Date());
+
                 Map<String, Object> map = new HashMap<>();
                 map.put("IdUser",id);
                 map.put("Id_Incident",idIncident);
@@ -205,6 +233,9 @@ public class StatusFragment extends Fragment {
                 map.put("Location",LocationGet);
                 map.put("Type_of_alert","Denuncia ciudadana");
                 map.put("Status","Pendiente");
+                map.put("Comments","");
+                map.put("Date",fecha);
+                map.put("Hour",hora);
 
                 databaseReference.child(Data_Reference.SendIncident).push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

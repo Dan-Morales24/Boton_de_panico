@@ -43,13 +43,9 @@ public class SosAdapter extends RecyclerView.Adapter <SosAdapter.ViewHolder>impl
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         IncidentSosModel incidentSosModel = NameList.get(position);
-        holder.textViewInformation.setText(incidentSosModel.getName());
-        holder.textViewLocation.setText(incidentSosModel.getLocation());
-        holder.textViewStatus.setText("Estado de la alerta: "+incidentSosModel.getStatus());
+        holder.textViewLocation.setText("Ubicacion: "+incidentSosModel.getLocation());
         holder.textViewIdSos.setText("Id: "+incidentSosModel.getIdSosAlert());
-
-        String status = incidentSosModel.getStatus();
-
+        holder.textViewHour.setText(incidentSosModel.getHour());
 
         Glide.with(holder.view) .load(Data_Reference.currentClient.getAvatar())
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
@@ -94,9 +90,8 @@ public class SosAdapter extends RecyclerView.Adapter <SosAdapter.ViewHolder>impl
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private TextView textViewIdSos;
-        private TextView textViewInformation;
         private TextView textViewLocation;
-        private TextView textViewStatus;
+        private TextView textViewHour;
         private ImageView imageViewStatus,ImageAvatar;
         public View view;
 
@@ -106,11 +101,10 @@ public class SosAdapter extends RecyclerView.Adapter <SosAdapter.ViewHolder>impl
             this.view = view;
 
             this.textViewIdSos = (TextView) view.findViewById(R.id.textViewIdSosIncident);
-            this.textViewInformation = (TextView) view.findViewById(R.id.textViewInformation);
             this.textViewLocation = (TextView) view.findViewById(R.id.textLocation);
-            this.textViewStatus = (TextView) view.findViewById(R.id.textStatus);
             this.imageViewStatus = (ImageView) view.findViewById(R.id.imageViewStatus);
             this.ImageAvatar = (ImageView) view.findViewById(R.id.item_image_panic);
+            this.textViewHour = (TextView) view.findViewById(R.id.hourSOS);
 
         }
 
