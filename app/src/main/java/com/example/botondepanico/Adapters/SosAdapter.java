@@ -34,8 +34,8 @@ public class SosAdapter extends RecyclerView.Adapter <SosAdapter.ViewHolder>impl
         View view = LayoutInflater.from(parent.getContext()).inflate(resource, parent, false);
 
 
-        view.setOnClickListener(this);
 
+        view.setOnClickListener(this);
         return new ViewHolder(view);
     }
 
@@ -70,6 +70,7 @@ public class SosAdapter extends RecyclerView.Adapter <SosAdapter.ViewHolder>impl
 
     @Override
     public int getItemCount() {
+
         return NameList.size();
     }
 

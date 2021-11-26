@@ -45,7 +45,6 @@ public class GalleryFragment extends Fragment {
 
     private FragmentGalleryBinding binding;
     private DatabaseReference databaseReference;
-    FirebaseDatabase database;
     private FirebaseAuth firebaseAuth;
     View root;
     private SosAdapter sosAdapter;
@@ -66,7 +65,7 @@ public class GalleryFragment extends Fragment {
         recyclerView = (RecyclerView)root.findViewById(R.id.recyclerViewMensajes);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        avatar = (ImageView) root.findViewById(R.id.item_image_panic);
+   //     avatar = (ImageView) root.findViewById(R.id.item_image_panic);
         progressBar = (ProgressBar) root.findViewById(R.id.progressBarPanic);
         NoData = (TextView) root.findViewById(R.id.textNoData);
         databaseReference = FirebaseDatabase.getInstance().getReference();

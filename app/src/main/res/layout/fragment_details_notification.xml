@@ -36,7 +36,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="20dp"
             android:orientation="horizontal"
             >
@@ -50,18 +50,18 @@
                 style="@style/text_color_notification"
                 android:gravity="center"
                 android:textStyle="bold"
-                android:textSize="19dp"
-                android:text="Fecha de publicacion" />
+                android:textSize="15dp"
+                android:text="Fecha de\n publicacion" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_weight="1"
-                android:textSize="19dp"
+                android:textSize="15dp"
                 style="@style/text_color_notification"
                 android:textStyle="bold"
-                android:text="Hora de publicacion" />
+                android:text="Hora de\n publicacion" />
         </LinearLayout>
 
         <LinearLayout
@@ -90,7 +90,7 @@
                 style="@style/text_color_notification"
                 android:layout_weight="1"
                 android:textSize="16dp"
-                android:text="99:99:99" />
+                android:text="23:05 p. m." />
         </LinearLayout>
 
 

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    card_view:cardCornerRadius="20dp"
+    card_view:cardElevation="6dp"
+    card_view:contentPadding="0dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+
+            android:id="@+id/item_image_notification"
+            android:layout_width="67dp"
+            android:layout_height="65dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="-1dp"
+            android:layout_marginEnd="16dp"
+
+            android:src="@drawable/icono_details_complaint" />
+
+        <TextView
+            android:id="@+id/TitleNotification"
+            style="@style/text_view_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/item_image_notification"
+            android:layout_toRightOf="@+id/item_image_notification"
+            android:text="Pago de apoyo a adultos mayores"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+
+       <TextView
+            android:id="@+id/DescriptionNotification"
+            style="@style/text_data_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TitleNotification"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/item_image_notification"
+            android:layout_toRightOf="@+id/item_image_notification"
+            android:text="El pago de los adultos mayores sera entregado en la siguientes formas de...."
+            android:textSize="14dp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/textStatusSeeMore"
+            style="@style/text_view_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/DescriptionNotification"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/item_image_notification"
+            android:layout_toRightOf="@+id/item_image_notification"
+            android:text="ver mas ..."
+            android:textSize="18dp"
+            android:textStyle="bold|italic"
+
+            />
+
+
+        <TextView
+            android:id="@+id/hourPostNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textStatusSeeMore"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="11dp"
+            android:layout_toEndOf="@+id/item_image_notification"
+            android:layout_toRightOf="@+id/item_image_notification"
+            android:gravity="right"
+            android:text="12:20 p.m." />
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+</androidx.cardview.widget.CardView>
