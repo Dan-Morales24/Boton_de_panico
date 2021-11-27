@@ -71,13 +71,14 @@ public class SlideshowFragment extends Fragment {
                 if(snapshot.exists()){
 
                     for (DataSnapshot ds : snapshot.getChildren()){
-                        String BriefDescription = ds.child("Description").getValue().toString();
-                        String HourPublished = ds.child("Hour").getValue().toString();
-                        String ImageNotification =ds.child("ImageNotification").getValue().toString();
+                        String Id = ds.child("Id").getValue().toString();
                         String Title= ds.child("TitleNotification").getValue().toString();
+                        String BriefDescription = ds.child("Description").getValue().toString();
+                        String ImageNotification =ds.child("ImageNotification").getValue().toString();
+                        String HourPublished = ds.child("Hour").getValue().toString();
 
 
-                        notificationsModels.add(new NotificationsModel(Title,BriefDescription,ImageNotification,HourPublished));
+                        notificationsModels.add(new NotificationsModel(Id,Title,BriefDescription,ImageNotification,HourPublished));
 
                     }
 
@@ -93,7 +94,7 @@ public class SlideshowFragment extends Fragment {
 
                             Bundle bundle = new Bundle();
                             final NavController navController = Navigation.findNavController(v);
-                          //  bundle.putString("Id",notificationsModels.get(recyclerView.getChildAdapterPosition(v)).getIdSosAlert());
+                            bundle.putString("Id",notificationsModels.get(recyclerView.getChildAdapterPosition(v)).getId());
                             getParentFragmentManager().setFragmentResult("key",bundle);
                             navController.navigate(R.id.action_nav_slideshow_to_detailsNotification);
                             notificationsModels.clear();

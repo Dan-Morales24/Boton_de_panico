@@ -27,7 +27,6 @@ public class NotificationsAdapter extends RecyclerView.Adapter <NotificationsAda
     }
 
 
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -42,11 +41,13 @@ public class NotificationsAdapter extends RecyclerView.Adapter <NotificationsAda
     public void onBindViewHolder(@NonNull NotificationsAdapter.ViewHolder holder, int position) {
 
         NotificationsModel notificationsModel = NameList.get(position);
+
+        holder.textViewId.setText(notificationsModel.getId());
         holder.textViewTitle.setText(notificationsModel.getTitle());
         holder.textViewDescription.setText(notificationsModel.getBriefDescription());
         holder.textViewHour.setText(notificationsModel.getHourPublished());
 
-        Glide.with(holder.view) .load(notificationsModel.getImageDescription())
+        Glide.with(holder.view) .load(notificationsModel.getImageNotification())
                 .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
                 .error(R.drawable.icono_denuncias)
                 .into(holder.ImageAvatar);
@@ -82,6 +83,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter <NotificationsAda
         private TextView textViewTitle;
         private TextView textViewHour;
         private TextView textViewDescription;
+        private TextView textViewId;
         private ImageView ImageAvatar;
         public View view;
 
@@ -94,6 +96,7 @@ public class NotificationsAdapter extends RecyclerView.Adapter <NotificationsAda
             this.textViewDescription = (TextView) view.findViewById(R.id.DescriptionNotification);
             this.ImageAvatar = (ImageView) view.findViewById(R.id.item_image_notification);
             this.textViewHour = (TextView) view.findViewById(R.id.hourPostNotification);
+            this.textViewId = (TextView) view.findViewById(R.id.IdPostNotification);
 
         }
 

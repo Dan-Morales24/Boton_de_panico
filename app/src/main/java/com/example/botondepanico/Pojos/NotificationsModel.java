@@ -1,14 +1,16 @@
 package com.example.botondepanico.Pojos;
 
 public class NotificationsModel {
+    String Id;
     String Title;
     String BriefDescription;
     String ImageNotification;
     String HourPublished;
 
 
-    public NotificationsModel(String title, String briefDescription, String imageNotification, String hourPublished){
+    public NotificationsModel(String id, String title, String briefDescription, String imageNotification, String hourPublished){
 
+        this.Id=id;
         this.Title=title;
         this.BriefDescription=briefDescription;
         this.ImageNotification=imageNotification;
@@ -32,13 +34,6 @@ public class NotificationsModel {
         BriefDescription = briefDescription;
     }
 
-    public String getImageDescription() {
-        return ImageNotification;
-    }
-
-    public void setImageDescription(String imageDescription) {
-        ImageNotification = imageDescription;
-    }
 
     public String getHourPublished() {
         return HourPublished;
@@ -46,5 +41,21 @@ public class NotificationsModel {
 
     public void setHourPublished(String hourPublished) {
         HourPublished = hourPublished;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
+    }
+
+    public String getImageNotification() {
+        return ImageNotification;
+    }
+
+    public void setImageNotification(String imageNotification) {
+        ImageNotification = imageNotification;
     }
 }
