@@ -224,20 +224,6 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-            return;
-        }
-        fusedLocationProviderClient.getLastLocation()
-                .addOnFailureListener(e -> Snackbar.make(getView(), e.getMessage(), Snackbar.LENGTH_SHORT)
-                        .show()).addOnSuccessListener(location -> {
-
-            if (location != null) {
-
-                pulsatorLayout.setVisibility(View.VISIBLE);
-
-            }
-        });
 
 
             Dexter.withContext(getContext())
@@ -283,6 +269,23 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                             buildLocationRequest();
                             buildLocationCallBack();
                             updateLocation();
+
+                            if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                                return;
+                            }
+                            fusedLocationProviderClient.getLastLocation()
+                                    .addOnFailureListener(e -> Snackbar.make(getView(), e.getMessage(), Snackbar.LENGTH_SHORT)
+                                            .show()).addOnSuccessListener(location -> {
+
+                                if (location != null) {
+
+                                    pulsatorLayout.setVisibility(View.VISIBLE);
+
+                                }
+                            });
+
+
                         }
 
                         @Override

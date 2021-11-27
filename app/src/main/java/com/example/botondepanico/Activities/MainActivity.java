@@ -1,13 +1,16 @@
 package com.example.botondepanico.Activities;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -43,6 +46,16 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.DexterError;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.PermissionRequestErrorListener;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
+import com.karumi.dexter.listener.single.PermissionListener;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -50,6 +63,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -126,7 +140,46 @@ public class MainActivity extends AppCompatActivity implements UpdateData {
         Avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CropImage.startPickImageActivity(MainActivity.this);
+
+
+
+                Dexter.withActivity(MainActivity.this)
+                        .withPermissions(
+                                Manifest.permission.READ_EXTERNAL_STORAGE,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                               )
+                        .withListener(new MultiplePermissionsListener() {
+                            @Override
+                            public void onPermissionsChecked(MultiplePermissionsReport report) {
+                                // check if all permissions are granted
+                                if (report.areAllPermissionsGranted()) {
+                                    CropImage.startPickImageActivity(MainActivity.this);
+                                //    Toast.makeText(getApplicationContext(), "All permissions are granted!", Toast.LENGTH_SHORT).show();
+                                }
+
+                                // check for permanent denial of any permission
+                                if (report.isAnyPermissionPermanentlyDenied()) {
+                                    // show alert dialog navigating to Settings
+                                    showSettingsDialog();
+                                }
+                            }
+
+                            @Override
+                            public void onPermissionRationaleShouldBeShown(List permissions, PermissionToken token) {
+                                token.continuePermissionRequest();
+                            }
+                        }).
+                        withErrorListener(new PermissionRequestErrorListener() {
+                            @Override
+                            public void onError(DexterError error) {
+                                Toast.makeText(getApplicationContext(), "Error occurred!"+ error.toString(), Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .onSameThread()
+                        .check();
+
+
+
 
             }
         });
@@ -238,6 +291,35 @@ public class MainActivity extends AppCompatActivity implements UpdateData {
         databaseReference = FirebaseDatabase.getInstance().getReference().child(Data_Reference.Client_Info_reference);
         storageReference = FirebaseStorage.getInstance().getReference().child("Profile_User");
 
+    }
+
+
+    private void showSettingsDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setTitle("Necesitamos permiso");
+        builder.setMessage("Esta aplicación necesita permiso para usar la galeria. Puede otorgarse en la configuración de la aplicación.");
+        builder.setPositiveButton("ir a configuraciones", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+                openSettings();
+            }
+        });
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+
+    }
+
+    private void openSettings() {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", getPackageName(), null);
+        intent.setData(uri);
+        startActivityForResult(intent, 101);
     }
 
 
