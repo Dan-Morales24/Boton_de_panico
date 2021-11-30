@@ -16,21 +16,23 @@
 
             <ProgressBar
                 android:id="@+id/progressBarNotifications"
+
                 style="?android:attr/progressBarStyle"
                 android:layout_width="87dp"
                 android:layout_height="73dp"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:layout_marginTop="310dp"
                 android:layout_gravity="center"
                  />
 
             <LinearLayout
 
+
                 android:id="@+id/visibilityNotifications"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:visibility="gone"
+                android:visibility="visible"
                 >
 
 
@@ -47,8 +49,9 @@
 
         <TextView
 
+
             android:id="@+id/textViewTitleNotification"
-            style="@style/text_color_notification"
+            style="@style/text_view_details_notification"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,7 +74,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                style="@style/text_color_notification"
+                style="@style/text_view_details_notification"
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textSize="15dp"
@@ -84,7 +87,7 @@
                 android:gravity="center"
                 android:layout_weight="1"
                 android:textSize="15dp"
-                style="@style/text_color_notification"
+                style="@style/text_view_details_notification"
                 android:textStyle="bold"
                 android:text="Hora de\n publicacion" />
         </LinearLayout>
@@ -103,7 +106,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                style="@style/text_color_notification"
                 android:textSize="16dp"
                 android:text="24/01/2021" />
 
@@ -112,7 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                style="@style/text_color_notification"
+
                 android:layout_weight="1"
                 android:textSize="16dp"
                 android:text="23:05 p. m." />
@@ -126,7 +128,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="17dp"
-            style="@style/text_color_notification"
             android:textStyle="bold|italic"
             android:text="Noticia informativa" />
 
@@ -137,7 +138,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginStart="25dp"
             android:layout_marginEnd="25dp"
-            style="@style/text_color_notification"
+            style="@style/text_view_details_notification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15dp"

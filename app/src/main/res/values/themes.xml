@@ -70,6 +70,10 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="text_view_details_notification" parent="Theme.BotonDePanico.NoActionBar">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 
     <style name="Theme.BotonDePanico.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

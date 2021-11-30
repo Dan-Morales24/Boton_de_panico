@@ -145,8 +145,6 @@ public class log_in extends Fragment {
                 if(task.isSuccessful()) {
                     checkUserFromFirebase();
                     FirebaseUser user = firebaseAuth.getCurrentUser();
-              //      Toast.makeText(getContext(), "Si existe el usuario" , Toast.LENGTH_SHORT).show();
-                    progressDialog.cancel();
                 }
 
                 else {
@@ -188,6 +186,7 @@ public class log_in extends Fragment {
                 }
                 else{
 
+                    Toast.makeText(getContext(), "Error en la estructura de token" , Toast.LENGTH_SHORT).show();
 
 
                 }
