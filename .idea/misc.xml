@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/juand/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/auto_complete_list.xml" value="0.10280797101449275" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/drawable-anydpi/ic_action_security_mipmap.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/drawable/button_round.xml" value="0.19166666666666668" />
+        <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/drawable/custom_toast_shape.xml" value="0.15" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/drawable/edit_text_day.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/drawable/ic_baseline_add_task_24.xml" value="0.19166666666666668" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/drawable/ic_baseline_aod_24.xml" value="0.19166666666666668" />
@@ -42,6 +44,7 @@
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/information_view_complaint.xml" value="0.5209003215434084" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/information_view_notification.xml" value="0.5" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/nav_header_main.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/notification_received.xml" value="0.4466666666666667" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/menu/activity_main_drawer.xml" value="0.7333333333333334" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/menu/main.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.19166666666666668" />

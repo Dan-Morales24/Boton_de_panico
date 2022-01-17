@@ -244,11 +244,12 @@ public class StatusFragment extends Fragment {
 
                         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm aa");
                         String hora = simpleDateFormat.format(new Date());
-
-
+                        String Uid = databaseReference.push().getKey();
                         Uri downloaduri = task.getResult();
+
                         Map<String, Object> map = new HashMap<>();
                         map.put("IdUser",id);
+                        map.put("Uid",Uid);
                         map.put("Id_Incident",idIncident);
                         map.put("TitleComplaint", TitleGet);
                         map.put("Name",NameGet);
@@ -259,12 +260,13 @@ public class StatusFragment extends Fragment {
                         map.put("Location",LocationGet);
                         map.put("Type_of_alert","Denuncia ciudadana");
                         map.put("Status","Pendiente");
-                        map.put("IncidentComplaint",downloaduri.toString());
                         map.put("Comments","");
                         map.put("Date",fecha);
                         map.put("Hour",hora);
+                        map.put("IncidentComplaint",downloaduri.toString());
 
-                        databaseReference.child(Data_Reference.SendIncident).push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                        databaseReference.child(Data_Reference.SendIncident).child(Uid).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
                             public void onComplete(@NonNull Task<Void> task2) {
                                 if (task2.isSuccessful()){
@@ -301,9 +303,11 @@ public class StatusFragment extends Fragment {
 
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
                 String hora = simpleDateFormat.format(new Date());
+                String Uid = databaseReference.push().getKey();
 
                 Map<String, Object> map = new HashMap<>();
                 map.put("IdUser",id);
+                map.put("Uid",Uid);
                 map.put("Id_Incident",idIncident);
                 map.put("TitleComplaint", TitleGet);
                 map.put("Name",NameGet);
@@ -318,7 +322,7 @@ public class StatusFragment extends Fragment {
                 map.put("Date",fecha);
                 map.put("Hour",hora);
 
-                databaseReference.child(Data_Reference.SendIncident).push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                databaseReference.child(Data_Reference.SendIncident).child(Uid).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task2) {
                         if (task2.isSuccessful()){

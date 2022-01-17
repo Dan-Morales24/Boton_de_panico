@@ -89,7 +89,7 @@ public class Edit_information extends Fragment {
 
                 if(NameShared.equals(SetName)&&LastNameShared.equals(SetlastName)&&PhoneShared.equals(SetPhone)){
 
-                    Toast.makeText(getContext(), "Datos actualizados.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getContext(), "Datos actualizadosss.", Toast.LENGTH_LONG).show();
 
                 }
 

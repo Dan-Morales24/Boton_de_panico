@@ -124,7 +124,7 @@ public class log_in_register extends Fragment {
                                 else {
 
                                     progressDialog.cancel();
-                                    Toast.makeText(getContext(), "No se pudo registrar el Conductor", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getContext(), "Ya registrado", Toast.LENGTH_SHORT).show();
                                 }
 
                             }
@@ -135,7 +135,7 @@ public class log_in_register extends Fragment {
                 else {
 
                     progressDialog.cancel();
-                    Toast.makeText(getContext(), "No se pudo registrar el Conductor", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "No se pudo registrar el usuario: "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
                 }
 

@@ -163,7 +163,10 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm aa");
         String hora = simpleDateFormat.format(new Date());
+        String Uid = mDatabase.push().getKey();
 
+        Long tsLong = System.currentTimeMillis()/1000;
+        String ts = tsLong.toString();
         String id = firebaseAuth.getCurrentUser().getUid();
         Map<String, Object> map = new HashMap<>();
         map.put("IdUser", id);
@@ -179,8 +182,10 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
         map.put("Status", "Pendiente");
         map.put("Date", fecha);
         map.put("Hour", hora);
+        map.put("last_time_stamp",ts);
+        map.put("Uid",Uid);
 
-        mDatabase.child(Data_Reference.SOS).push().setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+        mDatabase.child(Data_Reference.SOS).child(Uid).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task2) {
                 if (task2.isSuccessful()) {

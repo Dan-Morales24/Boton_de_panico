@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "760252501543",
+    "firebase_url": "https://boton-de-panico-bb93e-default-rtdb.firebaseio.com",
     "project_id": "boton-de-panico-bb93e",
     "storage_bucket": "boton-de-panico-bb93e.appspot.com"
   },
@@ -14,31 +15,22 @@
       },
       "oauth_client": [
         {
-          "client_id": "760252501543-jpkhj3jcdcgtruo20qok6hlp2if1nnpr.apps.googleusercontent.com",
+          "client_id": "760252501543-emm4vuuco6rqpu5d19dkkakl1tkn6j6d.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.botondepanico",
-            "certificate_hash": "4805a739f00e6a8d4c8c12ba384a44910484d364"
+            "certificate_hash": "a4b234e2a05f1da69627ef891390dba7ce3e47bc"
           }
-        },
-        {
-          "client_id": "760252501543-dk8f3mvfloe6p1cd5715elfaenint1p5.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD7QJl7pW3kQKqRZNgCiTV2pkRcCamluco"
+          "current_key": "AIzaSyDjgQyStxMQf2EfMQo3PJKWeQdIVrT51nw"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "760252501543-dk8f3mvfloe6p1cd5715elfaenint1p5.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

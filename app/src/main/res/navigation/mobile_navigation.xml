@@ -67,12 +67,12 @@
     <fragment
         android:id="@+id/detailsComplaint2"
         android:name="com.example.botondepanico.ui.Incidents_sos.details.detailsComplaint"
-        android:label="menu_view_details"
+        android:label="@string/menu_view_details"
         tools:layout="@layout/fragment_details_complaint" />
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.botondepanico.ui.Incidents_sos.GalleryFragment"
-        android:label="fragment_gallery"
+        android:label="@string/menu_view_sos"
         tools:layout="@layout/fragment_gallery">
         <action
             android:id="@+id/action_nav_gallery_to_detailsComplaint2"
@@ -85,12 +85,12 @@
     <fragment
         android:id="@+id/detailsComplaintCitizen"
         android:name="com.example.botondepanico.ui.StatusComplaint.details.DetailsComplaintCitizen"
-        android:label="menu_view_details"
+        android:label="@string/menu_view_details"
         tools:layout="@layout/fragment_details_complaint_citizen" />
     <fragment
         android:id="@+id/detailsNotification"
         android:name="com.example.botondepanico.ui.Notificactions.details.DetailsNotification"
-        android:label="fragment_details_notification"
+        android:label="@string/menu_view_details"
         tools:layout="@layout/fragment_details_notification" />
 
 
