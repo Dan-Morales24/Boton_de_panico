@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements UpdateData {
 
                 else{
 
+
                     Toast.makeText(this,"Conexion a internet lenta",Toast.LENGTH_SHORT).show();
 
 
