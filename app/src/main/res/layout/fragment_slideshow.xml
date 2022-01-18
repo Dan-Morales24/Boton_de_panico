@@ -15,7 +15,7 @@
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="Notificaciones municipales"
-        android:textSize="30dp"
+        android:textSize="28dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,22 +49,18 @@
 
     <TextView
         android:id="@+id/textNoDataNotifications"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
         style="@style/text_color_login"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="No hay registros de alertas"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:text="No hay registros de alertas"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerViewNotifications"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/recyclerViewNotifications" />
-
-
-
-
-
+        app:layout_constraintTop_toTopOf="@+id/recyclerViewNotifications"
+        app:layout_constraintVertical_bias="0.394" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

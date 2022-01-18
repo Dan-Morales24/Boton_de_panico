@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.example.botondepanico.Adapters.ComplaintAdapter;
 import com.example.botondepanico.Adapters.SosAdapter;
@@ -38,6 +39,7 @@ public class Complaints extends Fragment {
     private ComplaintAdapter complaintAdapter;
     private ArrayList<ComplaintModel> complaintModels = new ArrayList<>();
     private ProgressBar progressBar;
+    private TextView NoData;
 
 
     public Complaints() {
@@ -61,6 +63,7 @@ public class Complaints extends Fragment {
         firebaseAuth=FirebaseAuth.getInstance();
         recyclerView = (RecyclerView)view.findViewById(R.id.recyclerViewComplaints);
         progressBar= (ProgressBar)view.findViewById(R.id.progressBarComplaint);
+        NoData = (TextView) view.findViewById(R.id.textNoDataComplaints);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         databaseReference = FirebaseDatabase.getInstance().getReference();
         GetComplaintsFromFirebase();
@@ -102,6 +105,12 @@ public class Complaints extends Fragment {
                             complaintModels.clear();
                         }
                     });
+
+                }
+                    else{
+
+                    progressBar.setVisibility(View.GONE);
+                    NoData.setVisibility(View.VISIBLE);
 
                 }
 

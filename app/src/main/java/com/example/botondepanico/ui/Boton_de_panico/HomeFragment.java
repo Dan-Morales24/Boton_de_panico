@@ -50,6 +50,7 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.material.snackbar.Snackbar;
@@ -57,6 +58,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -103,9 +105,16 @@ public class HomeFragment extends Fragment implements OnMapReadyCallback {
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        FirebaseMessaging.getInstance().subscribeToTopic("notifications").addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                //Toast.makeText(getContext(),"subscrito a alertas correcto",Toast.LENGTH_LONG).show();
+            }
+        });
+
         mDatabase = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
-        String id = firebaseAuth.getCurrentUser().getUid();
+        //String id = firebaseAuth.getCurrentUser().getUid();
         pulsatorLayout = (PulsatorLayout) root.findViewById(R.id.pulsator);
         pulsatorLayout.start();
         starLocationGet();

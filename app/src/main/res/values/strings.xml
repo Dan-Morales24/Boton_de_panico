@@ -10,7 +10,7 @@
     <string name="menu_gallery">Incidentes</string>
     <string name="menu_slideshow">Notificaciones</string>
     <string name="home_panic">Boton de panico</string>
-    <string name="menu_incident">Estado de alertas enviadas</string>
+    <string name="menu_incident">Alertas enviadas</string>
     <string name="menu_login_out">Cerrar Sesíon</string>
     <string name="menu_notifications">Notificaciones</string>
     <string name="menu_edit_information">Editar información</string>
@@ -18,7 +18,7 @@
     <string name="permission_requiere">Porfavor habilita tu GPS</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="menu_view_status">Denuncias</string>
+    <string name="menu_view_status">Denuncias enviadas</string>
     <string name="menu_view_details">Detalles</string>
     <string name ="menu_view_sos">Historial SOS</string>
 </resources>

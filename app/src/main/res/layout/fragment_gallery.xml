@@ -49,17 +49,18 @@
 
     <TextView
         android:id="@+id/textNoData"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
         style="@style/text_color_login"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="No hay registros de alertas"
         android:textSize="20dp"
         android:textStyle="bold"
-        android:text="No hay registros de alertas"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerViewMensajes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/recyclerViewMensajes" />
+        app:layout_constraintTop_toTopOf="@+id/recyclerViewMensajes"
+        app:layout_constraintVertical_bias="0.394" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

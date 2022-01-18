@@ -28,7 +28,7 @@
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/app_bar_main.xml" value="0.42604298356510745" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/content_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/fragment_Edit_information.xml" value="0.1" />
-        <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/fragment_complaints.xml" value="0.11730072463768115" />
+        <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/fragment_complaints.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/fragment_details_complaint.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/fragment_details_complaint_citizen.xml" value="0.1" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/fragment_details_notification.xml" value="0.4466666666666667" />
@@ -38,7 +38,7 @@
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/fragment_log_in.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/fragment_log_in_register.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/fragment_navigation_view_sos.xml" value="0.1431159420289855" />
-        <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/fragment_slideshow.xml" value="0.17552083333333332" />
+        <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/fragment_slideshow.xml" value="0.22" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/fragment_status.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/information_view.xml" value="0.24761904761904763" />
         <entry key="..\:/Users/juand/Documents/botonPanico/app/src/main/res/layout/information_view_complaint.xml" value="0.5209003215434084" />

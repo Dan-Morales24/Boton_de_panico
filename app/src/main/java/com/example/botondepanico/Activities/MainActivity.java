@@ -40,6 +40,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.botondepanico.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -90,6 +91,46 @@ public class MainActivity extends AppCompatActivity implements UpdateData {
     protected void onCreate(Bundle savedInstanceState) {
       //  setTheme(R.style.Theme_BotonDePanico_NoActionBar);
         super.onCreate(savedInstanceState);
+
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+
+
+
+            user.getIdToken(true).addOnCompleteListener(task -> {
+                if(task.isSuccessful()){
+
+                  //  Toast.makeText(this,"Id: "+task.getResult().getToken(),Toast.LENGTH_SHORT).show();
+
+                }
+
+
+                 }).addOnFailureListener( e-> {
+
+
+                if(e.getMessage().contains("account has been disabled")) {
+
+                    Toast.makeText(this,"Usuario bloqueado",Toast.LENGTH_SHORT).show();
+                    close_sesion_autentication();
+                     }
+
+                else{
+
+                    Toast.makeText(this,"Conexion a internet lenta",Toast.LENGTH_SHORT).show();
+
+
+                }
+
+            });
+
+
+
+
+        }
+
+
+
 
         init();
         sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE);
@@ -321,6 +362,22 @@ public class MainActivity extends AppCompatActivity implements UpdateData {
         intent.setData(uri);
         startActivityForResult(intent, 101);
     }
+
+
+    private void close_sesion_autentication(){
+
+        FirebaseAuth.getInstance().signOut();
+        editor.clear();
+        editor.commit();
+
+        Intent intent = new Intent(MainActivity.this, Login.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        finish();
+        startActivity(intent);
+
+    }
+
+
 
 
 
