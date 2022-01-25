@@ -195,13 +195,13 @@ public class StatusFragment extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void SubmitInformation() {
 
-        String TitleGet = TitleName.getText().toString();
-        String NameGet= Name.getText().toString();
-        String LastNameGet = LastName.getText().toString();
-        String NumberphoneGet = NumberPhone.getText().toString();
-        String EmailGet = Email.getText().toString();
-        String DescriptionGet = Description.getText().toString();
-        String LocationGet = LocationIncident.getText().toString();
+        String TitleGet = TitleName.getText().toString().trim();
+        String NameGet= Name.getText().toString().trim();
+        String LastNameGet = LastName.getText().toString().trim();
+        String NumberphoneGet = NumberPhone.getText().toString().trim();
+        String EmailGet = Email.getText().toString().trim();
+        String DescriptionGet = Description.getText().toString().trim();
+        String LocationGet = LocationIncident.getText().toString().trim();
 
         if(!TitleGet.isEmpty() && !NameGet.isEmpty() && !LastNameGet.isEmpty() && !NumberphoneGet.isEmpty() && !EmailGet.isEmpty() && !DescriptionGet.isEmpty() && !LocationGet.isEmpty() ){
             progressDialog = ProgressDialog.show(getContext(), "Ten paciencia..",

@@ -114,8 +114,8 @@ public class log_in extends Fragment {
     private void RegisterUser() {
 
         String userSet, passwordSet;
-        userSet = User.getText().toString();
-        passwordSet = Password.getText().toString();
+        userSet = User.getText().toString().trim();
+        passwordSet = Password.getText().toString().trim();
         if(!userSet.isEmpty() && !passwordSet.isEmpty()){
 
             progressDialog = ProgressDialog.show(getContext(), "Espera un poquito..",

@@ -83,9 +83,9 @@ public class Edit_information extends Fragment {
             @Override
             public void onClick(View v) {
                 callback.updateDataDrawer();
-                SetName = NameChange.getText().toString();
-                SetlastName = LastNameChange.getText().toString();
-                SetPhone = PhoneChange.getText().toString();
+                SetName = NameChange.getText().toString().trim();
+                SetlastName = LastNameChange.getText().toString().trim();
+                SetPhone = PhoneChange.getText().toString().trim();
 
                 if(NameShared.equals(SetName)&&LastNameShared.equals(SetlastName)&&PhoneShared.equals(SetPhone)){
 

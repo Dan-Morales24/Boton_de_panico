@@ -120,18 +120,10 @@ public class MainActivity extends AppCompatActivity implements UpdateData {
 
                     Toast.makeText(this,"Conexion a internet lenta",Toast.LENGTH_SHORT).show();
 
-
                 }
-
             });
 
-
-
-
         }
-
-
-
 
         init();
         sharedPreferences = getSharedPreferences("login", Context.MODE_PRIVATE);

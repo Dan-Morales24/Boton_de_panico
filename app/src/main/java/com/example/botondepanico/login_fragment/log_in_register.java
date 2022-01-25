@@ -76,11 +76,11 @@ public class log_in_register extends Fragment {
 
 
         //Set Data
-        NameSet = Name.getText().toString();
-        LastNameSet = LastName.getText().toString();
-        PhoneSet = Number.getText().toString();
-        EmailSet = Email.getText().toString();
-        PasswordSet = Password.getText().toString();
+        NameSet = Name.getText().toString().trim();
+        LastNameSet = LastName.getText().toString().trim();
+        PhoneSet = Number.getText().toString().trim();
+        EmailSet = Email.getText().toString().trim();
+        PasswordSet = Password.getText().toString().trim();
 
         if (!NameSet.isEmpty() && !LastNameSet.isEmpty() && !PhoneSet.isEmpty() && !EmailSet.isEmpty() && !PasswordSet.isEmpty()) {
             if (PasswordSet.length() >= 6) {
